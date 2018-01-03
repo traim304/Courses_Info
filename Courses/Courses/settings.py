@@ -47,7 +47,7 @@ DEFAULT_REQUEST_HEADERS = {
     'accept-language': "zh-CN,zh;q=0.9,en;q=0.8",
     'cache-control': "no-cache",
     'Origin': 'http://study.163.com',
-    'edu-script-token': '773e1914bd7f429080c98ac71f4bc213',
+    'edu-script-token': '773e1914bd7f429080c98ac71f4bc213',  # 需要更新token
     'Content-Type': 'application/json',
 
 }
