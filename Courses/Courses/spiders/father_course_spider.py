@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import json
-from scrapy.shell import inspect_response
+from Courses.items import  CoursesItem
 
 
 
@@ -18,6 +18,6 @@ class FatherCourseSpiderSpider(scrapy.Spider):
 
     def parse(self, response):
         respose_info = json.loads(response.body)
-        pass
-    #TODO 将数据保存到数据库中。
-    #TODO 下载缩略图
+        item = CoursesItem()
+        item['result_list'] = respose_info['result']['list']
+        return item
