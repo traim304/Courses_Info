@@ -6,6 +6,7 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import pymongo
 from scrapy.conf import  settings
+from pymongo.errors import  DuplicateKeyError
 
 class CoursesPipeline(object):
     def __init__(self):
@@ -19,5 +20,9 @@ class CoursesPipeline(object):
 
     def process_item(self, item, spider):
         for info in item['result_list']:
-            self.post.insert(info)
-            return item
+            info['_id'] = info['courseId']
+            try:
+                self.post.insert(info)
+            except DuplicateKeyError:
+                pass
+        return item
