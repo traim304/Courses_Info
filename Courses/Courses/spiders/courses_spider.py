@@ -4,9 +4,8 @@ import json
 from Courses.items import  CoursesItem
 
 
-
-class FatherCourseSpiderSpider(scrapy.Spider):
-    name = 'father_course_spider'
+class CoursesSpiderSpider(scrapy.Spider):
+    name = 'course_spider'
     allowed_domains = ['study.163.com']
 
     def start_requests(self):
