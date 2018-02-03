@@ -16,8 +16,7 @@ class CoursesSpiderSpider(scrapy.Spider):
                 {"pageIndex": page_index, "pageSize": page_size, "relativeOffset": page_size * (page_index - 1),
                  "frontCategoryId": -1, "searchTimeType": -1, "orderType": 0, "priceType": -1, "activityId": 0})
             json_api_url = 'http://study.163.com/p/search/studycourse.json'
-            requests = req.append(scrapy.Request(json_api_url, method='POST', body=post_data, callback=self.parse,
-                                                 meta={'proxy': 'http://localhost:8888'}))
+            requests = req.append(scrapy.Request(json_api_url, method='POST', body=post_data, callback=self.parse))
         return req
 
     def parse(self, response):
